@@ -8,3 +8,11 @@ For further reference, please consider the following sections:
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.3/maven-plugin/reference/html/#build-image)
 
 
+For Openshift Deployment:
+
+- Java version: 17
+- Maven commands:
+~~~
+mvn clean package oc:build -Popenshift
+mvn oc:apply -Popenshift
+~~~
