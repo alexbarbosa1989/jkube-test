@@ -23,6 +23,10 @@ oc login -u <user> -p <password> https://<openshift_platform-url>
 ~~~
 
 2. Create an Openshift project where will be deployed the application via JKube maven plugin
+~~~
+oc new-project jkube-test
+~~~
+
 
 3. Clone the project
 ~~~
@@ -45,5 +49,31 @@ Two-steps process:
 ~~~
 mvn clean package oc:build -Popenshift
 mvn oc:apply -Popenshift
+~~~
+
+The end of the deployment process will show a mave buld success process:
+~~~
+[INFO] oc: Updating Service from openshift.yml
+[INFO] oc: Updated Service: target/jkube/applyJson/jkube-test/service-jkube-test-1.json
+[INFO] oc: Updating DeploymentConfig from openshift.yml
+[INFO] oc: Updated DeploymentConfig: target/jkube/applyJson/jkube-test/deploymentconfig-jkube-test-1.json
+[INFO] oc: Updating Route from openshift.yml
+[INFO] oc: Updated Route: target/jkube/applyJson/jkube-test/route-jkube-test.json
+[INFO] oc: HINT: Use the command `oc get pods -w` to watch your pods start up
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:00 min
+[INFO] Finished at: 2024-03-17T11:24:10-05:00
+[INFO] ------------------------------------------------------------------------
+~~~
+
+You can  also validate the pod's status at the end of the process:
+~~~
+$ oc get pods
+NAME                     READY   STATUS      RESTARTS   AGE
+jkube-test-1-czddh       1/1     Running     0          9m31s
+jkube-test-1-deploy      0/1     Completed   0          9m33s
+jkube-test-s2i-1-build   0/1     Completed   0          10m
 ~~~
 
