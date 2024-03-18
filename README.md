@@ -34,15 +34,16 @@ git clone https://github.com/alexbarbosa1989/jkube-test
 cd jkube-test
 ~~~
 
-5. Deploy the application
-Two-steps process
-~~~
-mvn clean package oc:build -Popenshift
-mvn oc:apply -Popenshift
-~~~
+5. Deploy the application:
 
 One-step process:
 ~~~
-mvn clean package oc:deploy -Popenshift 
+mvn clean package oc:deploy -Popenshift
+~~~
+
+Two-steps process:
+~~~
+mvn clean package oc:build -Popenshift
+mvn oc:apply -Popenshift
 ~~~
 
