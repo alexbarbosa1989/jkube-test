@@ -7,8 +7,9 @@ For further reference, please consider the following sections:
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.3/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.3/maven-plugin/reference/html/#build-image)
 
+* [Official JKube documentation](https://eclipse.dev/jkube/docs/openshift-maven-plugin/#spring-boot-getting-started)
 
-For Openshift Deployment:
+## For Openshift Deployment:
 
 
 Environment:
