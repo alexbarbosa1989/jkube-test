@@ -10,9 +10,38 @@ For further reference, please consider the following sections:
 
 For Openshift Deployment:
 
-- Java version: 17
-- Maven commands:
+
+Environment:
+- Openshift 4.x
+- Java: OpenJDK 17
+
+
+1. Log In your Openshift environment:
+~~~
+oc login -u <user> -p <password> https://<openshift_platform-url>
+~~~
+
+2. Create an Openshift project where will be deployed the application via JKube maven plugin
+
+3. Clone the project
+~~~
+git clone https://github.com/alexbarbosa1989/jkube-test
+~~~
+
+4. Move to the project directory
+~~~
+cd jkube-test
+~~~
+
+5. Deploy the application
+Two-steps process
 ~~~
 mvn clean package oc:build -Popenshift
 mvn oc:apply -Popenshift
 ~~~
+
+One-step process:
+~~~
+mvn clean package oc:deploy -Popenshift 
+~~~
+
